@@ -1,6 +1,6 @@
 import api from "./api";
 
-export const getAll = (params) => api.get("/insurances", { params });
+export const getData = (params) => api.get("/insurances", { params });
 
 export const getById = (id) => api.get(`/insurances/${id}`);
 

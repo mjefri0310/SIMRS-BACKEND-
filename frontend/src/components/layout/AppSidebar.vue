@@ -1,14 +1,15 @@
 <template>
   <Toast />
   <ConfirmDialog />
-
   <div class="h-full flex flex-column justify-content-between p-3">
     <!-- MENU -->
+
     <div>
       <PanelMenu :model="items" />
     </div>
 
     <!-- FOOT -->
+
     <Button
       label="Logout"
       icon="pi pi-sign-out"
@@ -22,6 +23,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+
 import Button from "primevue/button";
 import PanelMenu from "primevue/panelmenu";
 
@@ -35,10 +37,13 @@ const items = [
       router.push("/dashboard");
     },
   },
+
   {
     label: "Master Data",
     icon: "pi pi-database",
+
     items: [
+      
       {
         label: "Jenis Layanan",
         icon: "pi pi-list",
@@ -87,12 +92,13 @@ const items = [
         command: () => {
           router.push("/rooms");
         },
-      },
+      }
     ],
   },
   {
     label: "Registrasi & Pelayanan",
     icon: "pi pi-receipt",
+
     items: [
       {
         label: "Pasien",
@@ -119,22 +125,30 @@ const items = [
   },
   {
     label: "Blockchain",
+
     icon: "pi pi-link",
+
     items: [
       {
         label: "Explorer",
+
         icon: "pi pi-database",
+
         command: () => {
           router.push("/blockchain/explorer");
         },
       },
+
       {
         label: "Verify",
+
         icon: "pi pi-shield",
+
         command: () => {
           router.push("/blockchain/verify");
         },
       },
+
       {
         label: "Recovery",
         icon: "pi pi-refresh",
@@ -142,6 +156,7 @@ const items = [
           router.push("/blockchain/recovery");
         },
       },
+
       {
         label: "Integrity Checker",
         icon: "pi pi-shield",
@@ -155,6 +170,7 @@ const items = [
 
 const logout = () => {
   localStorage.removeItem("token");
+
   router.push("/");
 };
 </script>

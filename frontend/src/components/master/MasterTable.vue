@@ -3,7 +3,6 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Paginator from "primevue/paginator";
 import Button from "primevue/button";
-
 defineProps({
   data: Array,
   loading: Boolean,
@@ -12,31 +11,21 @@ defineProps({
   columns: Array,
   module: String,
 });
-
 const goRegister = (patient) => {
-  console.log(patient);
-
+  console.log(patient)
   router.push({
     name: "registration-form",
     query: {
       patient_id: patient._id,
     },
   });
-};
 
-const emit = defineEmits([
-  "edit",
-  "delete",
-  "page",
-]);
+};
+const emit = defineEmits(["edit", "delete", "page"]);
 </script>
 
 <template>
-  <DataTable
-    :value="data"
-    :loading="loading"
-    responsiveLayout="scroll"
-  >
+  <DataTable :value="data" :loading="loading" responsiveLayout="scroll">
     <Column
       v-for="col in columns"
       :key="col.field"
@@ -46,17 +35,11 @@ const emit = defineEmits([
       <template #body="{ data }">
         {{
           col.field.includes(".")
-            ? col.field
-                .split(".")
-                .reduce(
-                  (obj, key) => obj?.[key],
-                  data
-                )
+            ? col.field.split(".").reduce((obj, key) => obj?.[key], data)
             : data[col.field]
         }}
       </template>
     </Column>
-
     <Column header="Aksi">
       <template #body="{ data }">
         <Button
@@ -86,9 +69,5 @@ const emit = defineEmits([
     </Column>
   </DataTable>
 
-  <Paginator
-    :rows="rows"
-    :totalRecords="total"
-    @page="emit('page', $event)"
-  />
+  <Paginator :rows="rows" :totalRecords="total" @page="emit('page', $event)" />
 </template>

@@ -1,4 +1,5 @@
 <template>
+
   <div
     class="
       surface-section
@@ -10,7 +11,9 @@
       align-items-center
     "
   >
+
     <!-- LEFT -->
+
     <div
       class="
         flex
@@ -18,6 +21,7 @@
         gap-3
       "
     >
+
       <Button
         icon="pi pi-bars"
         text
@@ -26,6 +30,7 @@
       />
 
       <div>
+
         <h2 class="m-0">
           SIMRS APP
         </h2>
@@ -33,10 +38,13 @@
         <small class="text-color-secondary">
           Sistem Informasi Rumah Sakit
         </small>
+
       </div>
+
     </div>
 
     <!-- RIGHT -->
+
     <div
       class="
         flex
@@ -44,6 +52,7 @@
         gap-3
       "
     >
+
       <Button
         icon="pi pi-bell"
         text
@@ -54,11 +63,14 @@
         label="A"
         shape="circle"
       />
+
     </div>
+
   </div>
+
 </template>
 
 <script setup>
-import Button from "primevue/button";
-import Avatar from "primevue/avatar";
+import Button from 'primevue/button'
+import Avatar from 'primevue/avatar'
 </script>
